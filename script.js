@@ -16,4 +16,4 @@ if (menuToggle && mainNav) {
 }
 
 document.getElementById("year").textContent = new Date().getFullYear();
-document.getElementById("yearsSinceFounded").textContent = new Date(new Date() - new Date("2001/12/15")).getFullYear() - 2001;
+document.getElementById("yearsSinceFounded").textContent = new Date(new Date() - new Date("2001/12/15")).getFullYear() - 1970;
