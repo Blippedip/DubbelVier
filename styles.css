@@ -1,8 +1,5 @@
-/* Dubbel Vier — visual style inspired by the supplied reference */
 :root {
   --cream: #f8ecdf;
-  --pink: #df78a5;
-  --pink-dark: #c85c8d;
   --ink: #111214;
   --muted: #5e5a58;
   --white: #ffffff;
@@ -104,12 +101,6 @@ body {
     linear-gradient(90deg, rgba(0, 0, 0, .75) 0%, rgba(0, 0, 0, .32) 55%, rgba(0, 0, 0, .08) 100%),
     #111214 url("assets/hero.png") center / cover no-repeat;
 }
-
-/*
-  Later, place your pink PNG at:
-  assets/hero.png
-  The CSS gradient remains as a fallback until that file is added.
-*/
 
 .hero::after {
   content: "";
