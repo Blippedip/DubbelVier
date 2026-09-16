@@ -1,0 +1,277 @@
+/* Dubbel Vier — visual style inspired by the supplied reference */
+:root {
+  --cream: #f8ecdf;
+  --pink: #df78a5;
+  --pink-dark: #c85c8d;
+  --ink: #111214;
+  --muted: #5e5a58;
+  --white: #ffffff;
+  --max-width: 1500px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  color: var(--ink);
+  background: var(--cream);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  min-height: 94px;
+  display: flex;
+  align-items: center;
+  padding: 0 4.6vw 0 245px;
+  background: var(--cream);
+}
+
+.brand {
+  position: absolute;
+  left: 12px;
+  top: 0;
+  z-index: 21;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  width: 205px;
+  height: 141px;
+  text-decoration: none;
+}
+
+.brand img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  object-position: center top;
+}
+
+.main-nav {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: clamp(14px, 1.7vw, 30px);
+}
+
+.main-nav a {
+  color: var(--ink);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 700;
+  white-space: nowrap;
+  transition: opacity 180ms ease;
+}
+
+.main-nav a:hover,
+.main-nav a:focus-visible {
+  opacity: 0.55;
+}
+
+.menu-toggle {
+  display: none;
+  margin-left: auto;
+  border: 0;
+  background: transparent;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.menu-toggle span {
+  display: block;
+  width: 28px;
+  height: 2px;
+  margin: 5px 0;
+  background: var(--ink);
+}
+
+.hero {
+  position: relative;
+  min-height: min(610px, calc(100vh - 94px));
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  background:
+    linear-gradient(90deg, rgba(0, 0, 0, .75) 0%, rgba(0, 0, 0, .32) 55%, rgba(0, 0, 0, .08) 100%),
+    #111214 url("assets/hero.png") center / cover no-repeat;
+}
+
+/*
+  Later, place your pink PNG at:
+  assets/hero.png
+  The CSS gradient remains as a fallback until that file is added.
+*/
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(0,0,0,.18), transparent 55%);
+  pointer-events: none;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  width: min(760px, 88vw);
+  margin-left: 2vw;
+  padding: 80px 0;
+  color: var(--white);
+}
+
+.hero h1 {
+  margin: 0 0 18px;
+  max-width: 720px;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(68px, 8vw, 126px);
+  font-weight: 700;
+  line-height: .88;
+  letter-spacing: -0.045em;
+}
+
+.hero p {
+  margin: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(22px, 2vw, 34px);
+  line-height: 1.15;
+}
+
+.content-section {
+  padding: 110px 6vw;
+  background: var(--cream);
+}
+
+.content-section.alt {
+  background: #f3e3df;
+}
+
+.section-inner {
+  width: min(980px, 100%);
+  margin: 0 auto;
+}
+
+.eyebrow {
+  margin: 0 0 12px;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+
+.content-section h2 {
+  margin: 0 0 22px;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(42px, 5vw, 72px);
+  line-height: .98;
+  letter-spacing: -.03em;
+}
+
+.content-section p:not(.eyebrow) {
+  max-width: 760px;
+  margin: 0;
+  color: var(--muted);
+  font-size: 19px;
+  line-height: 1.65;
+}
+
+.site-footer {
+  padding: 20px 6vw;
+  background: var(--ink);
+  color: #f6eee7;
+  text-align: center;
+  font-size: 12px;
+}
+
+.site-footer p {
+  margin: 0;
+}
+
+@media (max-width: 1100px) {
+  .site-header {
+    padding: 0 24px 0 205px;
+  }
+
+  .brand {
+    width: 187px;
+    height: 129px;
+  }
+
+  .main-nav {
+    gap: 14px;
+  }
+
+  .main-nav a {
+    font-size: 12px;
+  }
+
+  .hero-content {
+    margin-left: 24px;
+  }
+}
+
+@media (max-width: 820px) {
+  .site-header {
+    min-height: 78px;
+    height: 78px;
+    padding: 0 24px 0 155px;
+  }
+
+  .brand {
+    width: 147px;
+    height: 101px;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  .main-nav {
+    position: absolute;
+    top: 78px;
+    left: 0;
+    right: 0;
+    display: none;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    padding: 10px 24px 20px;
+    background: var(--cream);
+    border-top: 1px solid rgba(17,18,20,.08);
+    box-shadow: 0 12px 25px rgba(0,0,0,.08);
+  }
+
+  .main-nav.is-open {
+    display: flex;
+  }
+
+  .main-nav a {
+    padding: 13px 0;
+    font-size: 14px;
+  }
+
+  .hero {
+    min-height: 72vh;
+  }
+
+  .hero-content {
+    margin-left: 24px;
+    padding: 60px 0;
+  }
+
+  .hero h1 {
+    font-size: clamp(62px, 16vw, 100px);
+  }
+
+  .content-section {
+    padding: 78px 24px;
+  }
+}
